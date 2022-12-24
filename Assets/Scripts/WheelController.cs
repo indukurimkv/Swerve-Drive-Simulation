@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//The important math happens from line 71 to line 92. The rest is more or less boilerplate.
+//The important math happens from line 79 to line 100. The rest is more or less boilerplate.
 public class WheelController : MonoBehaviour
 {
     [SerializeField] private WheelCollider FR;
