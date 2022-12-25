@@ -24,8 +24,11 @@ public class WheelController : MonoBehaviour
     [SerializeField] private float accelForce = 500f;
     [SerializeField] private float breakForce = 100f;
 
+
     private Vector3 targetVelocity = new Vector3();
     private Vector3 targetRotation = new Vector3();
+
+
 
 
     private void FixedUpdate(){
@@ -62,7 +65,6 @@ public class WheelController : MonoBehaviour
         Vector2 BRV = getWheelVelocity(BRpos);
         Vector2 BLV = getWheelVelocity(BLpos);
 
-        print(FRV.y);
 
 
         FR.motorTorque = FRV.y;
@@ -78,7 +80,7 @@ public class WheelController : MonoBehaviour
     //calculate velocity vectors for each wheel
     private Vector2 getWheelVelocity(Vector3 pos){
         //Wheel velocity vector in rectangluar form
-        Vector3 VRect = transformCoordinates() + Vector3.Cross(-targetRotation, pos);
+        Vector3 VRect = transformCoordinates() + Vector3.Cross(-targetRotation, pos.normalized);
 
         //Convert velocity Vector into polar form
         //The 90 makes it so that 0 degrees is forward and not to the right
